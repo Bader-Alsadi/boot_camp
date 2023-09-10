@@ -1,12 +1,12 @@
 import "dart:io";
 
 void main() {
-  var choice = "";
+  String? choice;
   do {
     print("choose operation\n1.+\n2.-\n3.q to exit");
 
     stdout.write("your choice : ");
-    choice = stdin.readLineSync().toString();
+    choice = stdin.readLineSync();
 
     switch (choice) {
       case "1":
@@ -14,16 +14,14 @@ void main() {
         int one = int.parse(stdin.readLineSync().toString());
         stdout.write(" Enter the number tow : ");
         int tow = int.parse(stdin.readLineSync().toString());
-        int result = one + tow;
-        print("sum is $result");
+        print("sum is ${one + tow}");
         break;
       case "2":
         stdout.write(" Enter the number one : ");
         int one = int.parse(stdin.readLineSync().toString());
         stdout.write(" Enter the number tow : ");
         int tow = int.parse(stdin.readLineSync().toString());
-        int result = one - tow;
-        print("diffrenc is $result");
+        print("diffrenc is ${one - tow}");
         break;
       case "q":
         break;
