@@ -22,7 +22,6 @@ void main(List<String> args) {
   restaurants.forEach((element) {
     sum = 0;
     (element["ratings"] as List).forEach((e) {
-      // print(e);
       sum += e;
     });
     element["avgRating"] = sum / (element["ratings"] as List).length;
