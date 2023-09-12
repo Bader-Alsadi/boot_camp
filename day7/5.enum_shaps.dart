@@ -1,5 +1,3 @@
-import 'dart:math';
-
 /**Write a program to implement an enum called "Shapes” with the following elements.
 SQUARE, CIRCLE, RECTANGLE, TRIANGLE, HEXAGON. */
 enum Shapes { SQUARE, CIRCLE, RECTANGLE, TRIANGLE, HEXAGON }

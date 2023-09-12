@@ -1,3 +1,5 @@
+/**Write a program to create an enum called "DaysOfWeek" representing the days of the
+week using enum and display it */
 enum day_of_week {
   sunday,
   monday,

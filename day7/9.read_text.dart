@@ -21,7 +21,6 @@ void main(List<String> args) async {
   await f.writeAsString(temp.toUpperCase());
   //--end--
   //--start-- print even line and read list and add "I am devloper"
-  int i = 2;
   List<String> w = await f.readAsLines();
   print("=" * 30);
   w.forEach((element) {
