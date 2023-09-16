@@ -4,11 +4,17 @@ import 'dart:io';
 void main(List args) async {
   File f = File("books.json");
   List list_book = jsonDecode(f.readAsStringSync());
+
   Book b1 = Book(list_book[0]);
   Book b2 = Book(list_book[1]);
+
   ShoppingCart car = ShoppingCart();
   car.addItem(b1);
   car.addItem(b2);
+  print("befor remove ");
+  print("the total is ${car.total_item()}");
+  car.removeItem();
+  print("after remove ");
   print("the total is ${car.total_item()}");
 }
 
@@ -21,15 +27,22 @@ class ShoppingCart {
     this.total = 0;
   }
   void addItem(Book book) {
-    this.item.add(book);
+    item.add(book);
   }
 
   double total_item() {
-    this.total = 0;
     item.forEach((element) {
       this.total = this.total + element.price;
     });
     return this.total;
+  }
+
+  void removeItem() {
+    stdout.write("Enter The id of books : ");
+    int ID = int.parse(stdin.readLineSync()!);
+    var book = item.firstWhere((element) => element.id == ID);
+    this.total = this.total - book.price; //
+    item.remove(book);
   }
 }
 
