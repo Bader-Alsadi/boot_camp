@@ -3,7 +3,9 @@ void main(List<String> args) {
   try {
     s.addCourse(Course("CS", 101, true));
     s.addCourse(Course("IT", 102, true));
-    s.addCourse(Course("CS", 103, false));
+    s.addCourse(Course("MB", 103, true));
+    s.addCourse(Course("Is", 104, true));
+    s.addCourse(Course("CS", 104, true));
   } catch (e) {
     print(e);
   }
@@ -19,11 +21,10 @@ class Student {
   late bool _is_active = true;
   late int _numberCourse;
   List<Course> _Student_course = List.empty(growable: true);
-  Student(
-    this._name,
-    this._rollNumber,
-  ) {
-    // this.is_active = is_active;
+  Student(String name, this._rollNumber) {
+    this._name = name.length < 4
+        ? this._name = name.toLowerCase()
+        : this._name = name.toUpperCase();
     this._numberCourse = 0;
   }
   set rollNumber(int value) =>
@@ -39,7 +40,7 @@ class Student {
   String get name => this._name;
 
   addCourse(Course course) {
-    if (this._numberCourse < 4) {
+    if (this._Student_course.length < 4) {
       if (course._is_avialble) {
         if (this._is_active) {
           _Student_course.add(course);
