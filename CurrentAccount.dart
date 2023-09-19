@@ -27,12 +27,14 @@ class CurrentAccount extends Account {
 
   @override
   void withdraw(double amount) {
-    if (amount < this.balance) {
+    if (amount <= this.balance) {
       this.balance -= amount;
       print(
           "Withdraw $amount from current Account. balance : ${this.balance} ");
     } else {
       if ((this.balance + this._overdaraftlimit) > amount) {
+        this._overdaraftlimit = (this.balance + this._overdaraftlimit) - amount;
+        this.balance = 0;
         this._overdaraftlimit = (this.balance + this._overdaraftlimit) - amount;
         print(
             "Withdraw $amount from current Account. overdaraftlimit : ${this._overdaraftlimit} ");

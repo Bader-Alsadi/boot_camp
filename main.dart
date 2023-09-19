@@ -19,17 +19,22 @@ void main(List<String> args) {
 
   bank.deposit(savingsAccount, 200);
   print("\n");
-  bank.deposit(currentAccount, 300);
+  bank.deposit(currentAccount, 500);
   print("\n");
-  bank.withdraw(currentAccount, 400);
+  bank.withdraw(currentAccount, 4000);
   print("\n");
   bank.withdraw(savingsAccount, 500);
   print("\n");
 
   bank.printAccountBalances();
-
+  print("");
+  bank.deposit(currentAccount, 500);
+  print("");
+  bank.withdraw(currentAccount, 500);
+  print("\n");
   print("\n");
 
+  bank.printAccountBalances();
   savingsAccount.calculateInterest();
   // User u = User();
   // Mobile m = Mobile();

@@ -37,7 +37,7 @@ class SavingsAccount extends Account implements AccountManagement {
 
   @override
   void calculateInterest() {
-    this.balance = this.balance + this.balance * this._interestrate;
+    this.balance = this.balance + this.balance * (this._interestrate / 100);
 
     print("Account Balance SavingsAccount: ${this.balance}");
   }
