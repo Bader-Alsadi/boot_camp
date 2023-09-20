@@ -1,8 +1,8 @@
-import 'task.dart';
 import 'dart:io';
 
-void main(List<String> args) {
-  List<Task> to_do_list = List.empty(growable: true);
+void main() {
+  List<Map<String, String>> to_do_list = List.empty(growable: true);
+
   var input;
 
   do {
@@ -15,13 +15,13 @@ void main(List<String> args) {
 
     switch (input) {
       case "1":
+        Map<String, String> add = {};
         stdout.write("Enter the Title : ");
-        String title = stdin.readLineSync().toString();
+        add["Title"] = stdin.readLineSync().toString();
         stdout.write("Enter the Descripction : ");
-        String des = stdin.readLineSync().toString();
-
-        to_do_list.add(Task(Title: title, descripction: des));
+        add["Des"] = stdin.readLineSync().toString();
         print("added successfuly ");
+        to_do_list.add(add);
         break;
       case "2":
         stdout.write("Enter the index of task : ");
@@ -30,8 +30,8 @@ void main(List<String> args) {
         break;
       case "3":
         to_do_list.forEach((element) {
-          stdout.write("Title is : ${element.Title}\n");
-          stdout.write("Descripction is : ${element.descripction}\n");
+          stdout.write("Title is : ${element["Title"]}\n");
+          stdout.write("Descripction is : ${element["Des"]}\n");
           print("-" * 25);
         });
         break;
@@ -39,10 +39,10 @@ void main(List<String> args) {
         stdout.write("Enter the title or sub form it : ");
         String fil = stdin.readLineSync().toString();
         var result =
-            to_do_list.where((element) => element.Title!.contains(fil));
+            to_do_list.where((element) => element["Title"]!.contains(fil));
         result.forEach((element) {
-          stdout.write("Title is : ${element.Title}\n");
-          stdout.write("Descripction is : ${element.descripction}\n");
+          stdout.write("Title is : ${element["Title"]}\n");
+          stdout.write("Descripction is : ${element["Des"]}\n");
           print("-" * 25);
         });
 
