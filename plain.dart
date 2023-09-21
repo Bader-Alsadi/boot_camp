@@ -1,7 +1,8 @@
 import 'transportMathod.dart';
 
 class plain extends TransportMthod {
-  plain({required String company , required int model , required int seats}) : super(company: company,model: model,seats: seats);
+    plain():super();
+  plain.file({required String company , required int model , required int seats, bool avalibale=false}) : super.fail(company: company,model: model,seats: seats,avalibale: avalibale);
   
   @override
   void disPlayInfo() {
