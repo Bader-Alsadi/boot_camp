@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'birthday.dart';
+import 'opertions.dart';
 
 enum months {
   January,
@@ -34,7 +35,13 @@ void main(List<String> args) async {
         print_listbirthday(birth_day_josn);
         break;
       case "2":
-        filter_name_year(birth_day_josn);
+        Opertion<Birtday> s = Opertion();
+        stdout.write("Enter : ");
+        String keyword = stdin.readLineSync().toString();
+        List<Birtday> l = s.search(birth_day_josn, keyword);
+        l.forEach((element) {
+          print("${element.name} him/her is ${element.birhday}");
+        });
         break;
       case "3":
         add_to_list(birth_day_josn);
@@ -84,7 +91,6 @@ void count_months(List<Birtday> list_to_count) {
   Map<String, int> mons = {};
 
   list_to_count.forEach((element) {
-    // int currnet = int.parse(element.birhday.split("/")[1]);
     mons[months.values[element.get_mounth() - 1].name] =
         mons[months.values[element.get_mounth() - 1].name] ?? 0 + 1;
   });
@@ -93,33 +99,3 @@ void count_months(List<Birtday> list_to_count) {
   });
 }
 
-void filter_name_year(List<Birtday> list_to_filtter) {
-  print("\n to flitter \n1.by name\n2.by year");
-  var input = stdin.readLineSync();
-  switch (input) {
-    case "1":
-      stdout.write("Enter The name : ");
-      String name_c = stdin.readLineSync().toString();
-      list_to_filtter.forEach((element) {
-        if (element.name.contains(name_c)) {
-          print("+" * 30);
-          print("${element.name} him/her is ${element.birhday}");
-          print("+" * 30);
-        }
-      });
-      break;
-    case "2":
-      stdout.write("Enter The year : ");
-      String year_c = stdin.readLineSync().toString();
-      list_to_filtter.forEach((element) {
-        if (element.birhday.toString().split("/")[2].contains(year_c)) {
-          print("+" * 30);
-          print("${element.name} him/her is ${element.birhday}");
-          print("+" * 30);
-        }
-      });
-      break;
-    default:
-      print("wrong choic");
-  }
-}
