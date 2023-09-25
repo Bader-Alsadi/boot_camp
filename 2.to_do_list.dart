@@ -26,11 +26,13 @@ void main() async {
         stdout.write("Enter the Descripction :");
         String Descripction = stdin.readLineSync()!;
         tasks.addTolist(Title: Title, Descripction: Descripction);
+        myFile.writeFromFile(tasks.to_do_list);
         break;
       case "2":
         stdout.write("Enter the Title of task : ");
         String keyword = stdin.readLineSync()!;
         tasks.removeTask(keyword);
+        myFile.writeFromFile(tasks.to_do_list);
         break;
       case "3":
         tasks.viewListTask();
