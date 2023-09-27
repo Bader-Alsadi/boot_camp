@@ -6,7 +6,7 @@ class Pizza {
     this.size = pizzaBuilder.size;
     this.toppings = pizzaBuilder.toppings;
   }
-  String get getToppings => this.toppings!.join(" ");
+  String get getToppings => this.toppings!.join(", ");
 
   // set setToppings(String toppings) {
   //   this.toppings =
