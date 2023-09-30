@@ -1,5 +1,9 @@
  class User {
 
   late String name;
-  void coffeeNot (){}
+  User({required this.name});
+  void coffeeNot ({required DateTime dateTime ,required String message}){
+
+    print("[${dateTime}] Hey $name $message");
+  }
 }
