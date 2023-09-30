@@ -1,14 +1,7 @@
-class Student {
-  late int id;
-  late String name;
-  List<Grade> studentGrad = [];
-
-  Student({required this.id, required this.name});
-  String toString() => "Id : $id name: $name";
-}
+import 'Course.dart';
 
 class Grade {
-  late String course;
+  late Corurse course;
   late double mark;
   late String grade;
 
@@ -24,5 +17,5 @@ class Grade {
     else
       grade = "F";
   }
-  String toString() => "course name  : $course, mark: $mark. ( Grade : $grade)";
+  String toString() => "${course.toString()} \n mark: $mark. ( Grade : $grade)";
 }

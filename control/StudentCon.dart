@@ -1,4 +1,4 @@
-import 'models.dart';
+import '../models/Student.dart';
 
 class StudentControler {
   static List<Student> studenList = [];
@@ -6,4 +6,6 @@ class StudentControler {
     studenList.add(Student(id: studenList.length + 1, name: name));
     return true;
   }
+
+  
 }
