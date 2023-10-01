@@ -3,7 +3,7 @@ import 'Grade.dart';
 class Student {
   late int id;
   late String name;
-  Set<Grade> studentGrad = {};
+  // Set<Grade> studentGrad = {};
 
   Student({required this.id, required this.name});
 

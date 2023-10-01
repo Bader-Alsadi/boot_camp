@@ -10,7 +10,7 @@ class CorurseCon {
       required double fees}) {
     if (name.length > 3) {
       listCorurse.add(
-          Corurse(name: name, teacher: teacher, noHouers: noHouers, fees: fees)
+          Corurse(name: name, noHouers: noHouers, fees: fees)
             ..setId = listCorurse.length + 1);
       return true;
     } else

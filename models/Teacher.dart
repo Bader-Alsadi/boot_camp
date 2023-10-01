@@ -1,8 +1,10 @@
 
+import 'Course.dart';
+
 class Teacher {
   late int _id;
   late String name;
-  // List<Corurse> listTeacherCourse = [];
+  List<Corurse> listTeacherCourse = [];
 
   Teacher({required this.name});
 
