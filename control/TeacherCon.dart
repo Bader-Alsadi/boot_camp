@@ -1,43 +1,50 @@
+import '../models/Course.dart';
 import '../models/Teacher.dart';
 
 class TeacherCon {
   static List<Teacher> listTeacher = [];
 
   bool addNewTeacher({required String name}) {
-    listTeacher.add(Teacher(name: name)..setId = listTeacher.length + 1);
+    listTeacher.add(Teacher(name: name)..setId =  listTeacher.isEmpty ? 1 : listTeacher.last.getId + 1);
     return true;
   }
 
-  updateTeacher({required int id, required String name}) {
-    listTeacher.forEach((element) {
-      if (element.getId == id) element.name = name;
-    });
+  deleteTeacher({required String name}) {
+    int index = listTeacher.indexWhere((element) => element.name == name);
+    if (index != -1)
+      listTeacher.removeAt(index);
+    else
+      print("Not found");
   }
 
-  deleteTeacher({required int id}) {
-    if (listTeacher.any((element) => element.getId == id)) {
-      listTeacher.removeWhere((element) => element.getId == id);
-      return true;
-    }
-    return false;
+  showOneTeacherInfo({required String name}) {
+    int index = listTeacher.indexWhere((element) => element.name == name);
+    if (index != -1)
+      print(listTeacher[index].toString());
+    else
+      print("Not found");
   }
 
-  String showOneTeacherInfo({required int id}) {
-    if (listTeacher.any((element) => element.getId == id))
-      return listTeacher
-          .firstWhere((element) => element.getId == id)
-          .toString();
-    return "not founde";
-  }
-  showTeachersInfo() {
-    return [].map((e) => e.toString());
+    showTeacherInfo() {
+    return listTeacher.map((e) => e.toString()).toList();
   }
 
-  // addCourseToteacher({required Teacher teacher, Corurse}) {
-  // if (teacher.listTeacherCourse.length < 3) {
-  //   teacher.listTeacherCourse.add(Corurse);
-  //   return "Added done";
-  // } else
-  //   return "Teacher has 3 corurses you can\'t add more";
-  // }
+  AddCoruseToTeacger ({required Corurse corurse,required String name}){
+    int index = listTeacher.indexWhere((element) => element.name == name);
+    if (index != -1)
+      listTeacher[index].listTeacherCourse.add(corurse);
+    else
+      print("Not found");
+  }
+
+
+  remveCoruseToTeacger ({required Corurse corurse,required String name}){
+    int index = listTeacher.indexWhere((element) => element.name == name);
+    if (index != -1)
+      listTeacher[index].listTeacherCourse.remove(corurse);
+    else
+      print("Not found");
+  }
+
+
 }

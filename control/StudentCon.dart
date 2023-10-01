@@ -26,13 +26,10 @@ class StudentControler {
     if (index != -1)
       studenList[index].name = name;
     else
-      "";
-    // listStudent.forEach((element) {
-    //   if (element.getId == id) element.name = name;
-    // });
+      print("Not found");
   }
 
-  showOneTeacherInfo({required int id}) {
+  showOneStudentInfo({required int id}) {
     int index = studenList.indexWhere((element) => element.id == id);
     if (index != -1)
       print(studenList[index].toString());
@@ -56,7 +53,7 @@ class StudentControler {
   registercoures ({int? id ,String? name  }){
     Corurse ObjectCores = CorurseCon.listCorurse.firstWhere((element) => element.name == name ,orElse:()=> Corurse(fees: 0.0,name: "",noHouers: 0));
     if(ObjectCores.name !=""){
-      GrdeControler().addGradeRecode(id,ObjectCores);
+      GrdeControler().addGradeRecode(id:id,c:ObjectCores);
     }
   }
 }
