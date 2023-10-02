@@ -1,73 +1,50 @@
 import 'control/CorurseCon.dart';
 import 'control/StudentCon.dart';
 import 'control/TeacherCon.dart';
+import 'control/gradeControler.dart';
 import 'views/Courseview.dart';
-import 'views/Gradeview.dart';
-import 'views/studentview.dart';
-import 'views/teacherview.dart';
 
 void main(List<String> args) {
-  // Viewstuden viewstuden = Viewstuden();
-  // ViewGrades viewGrades = ViewGrades();
+  StudentControler stCo = StudentControler();
+  TeacherCon TCon = TeacherCon();
+  CorurseCon corurseCon = CorurseCon();
+  GrdeControler grdCon = GrdeControler();
 
-  addStuden(name: "bader");
-  addStuden(name: "yousf");
-  addStuden(name: "ahmad");
-  displayStudt();
+  stCo.AddStudent(name: "bader");
+  stCo.AddStudent(name: "yousf");
+  stCo.AddStudent(name: "ahmad");
+  stCo.showStudentsInfo();
 
-  addTeacher(name: "Ali");
-  addTeacher(name: "Ahmade");
-  addTeacher(name: "Amal");
-  addTeacher(name: "Omer");
+  TCon.addNewTeacher(name: "Ali");
+  TCon.addNewTeacher(name: "Ahmade");
+  TCon.addNewTeacher(name: "Amal");
+  TCon.addNewTeacher(name: "Omer");
+  TCon.showTeacherInfo();
 
-  addCoures(
-      name: "math",
-      teacher: TeacherCon.listTeacher[0],
-      noHouers: 30,
-      fees: 500);
-  addCoures(
-      name: "dart",
-      teacher: TeacherCon.listTeacher[1],
-      noHouers: 90,
-      fees: 150);
-  addCoures(
-      name: "English",
-      teacher: TeacherCon.listTeacher[2],
-      noHouers: 40,
-      fees: 400);
-  addCoures(
-      name: "c++", teacher: TeacherCon.listTeacher[0], noHouers: 60, fees: 200);
-  addCoures(
-      name: "oop", teacher: TeacherCon.listTeacher[3], noHouers: 20, fees: 100);
-  addCoures(
-      name: "data minde",
-      teacher: TeacherCon.listTeacher[0],
-      noHouers: 80,
-      fees: 300);
+  corurseCon.addNewCorurse(name: "math", noHouers: 30, fees: 500);
+  corurseCon.addNewCorurse(name: "dart", noHouers: 90, fees: 150);
+  corurseCon.addNewCorurse(name: "English", noHouers: 40, fees: 400);
+  corurseCon.addNewCorurse(name: "c++", noHouers: 60, fees: 200);
+  corurseCon.addNewCorurse(name: "oop", noHouers: 20, fees: 100);
+  corurseCon.addNewCorurse(name: "data minde", noHouers: 80, fees: 300);
+  corurseCon.showCorurseInfo();
 
-  addGrade(
-      student: StudentControler.studenList[0],
-      course: CorurseCon.listCorurse[0],
-      mark: 100);
-  addGrade(
-      student: StudentControler.studenList[0],
-      course: CorurseCon.listCorurse[1],
-      mark: 80);
-  addGrade(
-      student: StudentControler.studenList[0],
-      course: CorurseCon.listCorurse[1],
-      mark: 70);
+  stCo.registercoures(id: 1, name: "math");
+  stCo.registercoures(id: 1, name: "dart");
+  stCo.registercoures(id: 1, name: "English");
+  stCo.registercoures(id: 1, name: "data minde");
+  stCo.registercoures(id: 1, name: "c++");
 
-  addGrade(
-      student: StudentControler.studenList[1],
-      course: CorurseCon.listCorurse[1],
-      mark: 100);
-  addGrade(
-      student: StudentControler.studenList[1],
-      course: CorurseCon.listCorurse[1],
-      mark: 80);
-  print("\n\n");
-  displayStudt();
-  // displayoneTeacher(id: 1);
-  // displayonecourse(id: 1);
+  stCo.registercoures(id: 2, name: "dart");
+  stCo.registercoures(id: 2, name: "math");
+  stCo.registercoures(id: 2, name: "English");
+
+
+  stCo.registercoures(id: 3, name: "math");
+  stCo.registercoures(id: 3, name: "English");
+
+  stCo.registercoures(id: 4, name: "math");
+  stCo.showStudentsInfo();
+
+      // grdCon.showGradesInfo();
 }

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import '../models/Course.dart';
 import '../models/Student.dart';
 import 'CorurseCon.dart';
@@ -38,22 +36,30 @@ class StudentControler {
   }
 
   showStudentsInfo() {
+    print("${"-" * 20}Students${"-" * 20}");
     studenList.forEach((sudent) {
-      print(sudent.toString());
+      print("${"-" * 20}  ${studenList.indexOf(sudent)+1}   ${"-" * 20}");
+      print("Id : ${sudent.id} name: ${sudent.name}");
       double sum = 0.0;
       GrdeControler.ListGrade.where(
           (element) => element.student.id == sudent.id).forEach((ele) {
         sum += ele.course.fees;
-        print(ele.toString());
+        print(
+            "name course :${ele.course.name} NO Houres : ${ele.course.noHouers} fees : ${ele.course.fees} \nmark: ${ele.mark} ( Grade : ${ele.grade})");
       });
       if (sum != 0.0) print("Total : $sum");
     });
+    print("${"-" * 20}  End   ${"-" * 20}");
   }
 
-  registercoures ({int? id ,String? name  }){
-    Corurse ObjectCores = CorurseCon.listCorurse.firstWhere((element) => element.name == name ,orElse:()=> Corurse(fees: 0.0,name: "",noHouers: 0));
-    if(ObjectCores.name !=""){
-      GrdeControler().addGradeRecode(id:id,c:ObjectCores);
-    }
+  registercoures({int? id, String? name}) {
+    print("${"-" * 20}registe rcoures ${"-" * 20}");
+    Corurse ObjectCores = CorurseCon.listCorurse.firstWhere(
+        (element) => element.name == name,
+        orElse: () => Corurse(fees: 0.0, name: "", noHouers: 0));
+    if (ObjectCores.name != "") {
+      GrdeControler().addGradeRecode(id: id, corurse: ObjectCores);
+    } else
+      print("not found");
   }
 }

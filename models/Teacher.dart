@@ -12,5 +12,4 @@ int get getId => this._id;
 
  set setId(int id) => this._id = id;
 
- String toString () => " Id: ${this._id}- name : ${this.name}";
 }

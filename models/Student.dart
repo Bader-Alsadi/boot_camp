@@ -1,5 +1,3 @@
-import 'Grade.dart';
-
 class Student {
   late int id;
   late String name;
@@ -7,8 +5,6 @@ class Student {
 
   Student({required this.id, required this.name});
 
-
-  String toString() => "Id : $id name: $name";
 }
 
 

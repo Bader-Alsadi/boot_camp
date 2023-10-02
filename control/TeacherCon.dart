@@ -26,7 +26,11 @@ class TeacherCon {
   }
 
     showTeacherInfo() {
-    return listTeacher.map((e) => e.toString()).toList();
+      print("${"-"*20}Teachers${"-"*20}");
+     listTeacher.forEach((element) {
+      print("Id: ${element.getId}- name : ${element.name}");
+     });
+     print("${"-"*20}  End   ${"-"*20}");
   }
 
   AddCoruseToTeacger ({required Corurse corurse,required String name}){

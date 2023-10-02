@@ -7,12 +7,9 @@ class Grade {
   late double mark;
   late String _grade;
 
-  Grade({required this.course,required Student student, required this.mark}) {
-   
-  }
+  Grade({required this.course, required this.student, required this.mark});
   String get grade {
-
- if (mark <= 100 && mark > 89)
+    if (mark <= 100 && mark > 89)
       _grade = "A";
     else if (mark <= 89 && mark > 79)
       _grade = "B";
@@ -23,7 +20,6 @@ class Grade {
     else
       _grade = "F";
 
-      return grade;
+    return _grade;
   }
-  String toString() => "${course.toString()} \n mark: $mark. ( Grade : $_grade)";
 }
