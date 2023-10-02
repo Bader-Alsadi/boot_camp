@@ -1,4 +1,5 @@
 import '../models/Course.dart';
+import '../models/exam.dart';
 
 class CorurseCon {
   static List<Corurse> listCorurse = [];
@@ -43,4 +44,19 @@ class CorurseCon {
     });
     print("${"-" * 20}  End   ${"-" * 20}");
   }
+
+  addExam({required String name,required Exam exam}){
+    int index = listCorurse.indexWhere((element) => element.name == name);
+    if (index != -1)
+      {
+        if(exam.mark+listCorurse[index].listExam.map((e) => e.mark).toList().reduce((value, element) => element+value)<=100)
+        listCorurse[index].listExam.add(exam);
+        else
+        print("total mark is bigger than 100 ");
+      }
+    else
+      print("Not found");
+  }
+
+  
 }

@@ -30,7 +30,7 @@ class StudentControler {
   showOneStudentInfo({required int id}) {
     int index = studenList.indexWhere((element) => element.id == id);
     if (index != -1)
-      print(studenList[index].toString());
+      print("id :${studenList[index].id} name : ${studenList[index].name}");
     else
       print("Not found");
   }
@@ -38,7 +38,7 @@ class StudentControler {
   showStudentsInfo() {
     print("${"-" * 20}Students${"-" * 20}");
     studenList.forEach((sudent) {
-      print("${"-" * 20}  ${studenList.indexOf(sudent)+1}   ${"-" * 20}");
+      print("${"-" * 20}  ${studenList.indexOf(sudent) + 1}   ${"-" * 20}");
       print("Id : ${sudent.id} name: ${sudent.name}");
       double sum = 0.0;
       GrdeControler.ListGrade.where(
@@ -61,5 +61,15 @@ class StudentControler {
       GrdeControler().addGradeRecode(id: id, corurse: ObjectCores);
     } else
       print("not found");
+  }
+
+  filtterByDepartment({required String name_department}) {
+    int index = studenList
+        .indexWhere((element) => element.department!.name == name_department);
+    if (index != -1) {
+      print(
+          "id :${studenList[index].id} name : ${studenList[index].name} department: ${studenList[index].department!.name}");
+    } else
+      print("Not found");
   }
 }

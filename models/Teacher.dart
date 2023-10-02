@@ -1,9 +1,12 @@
 
 import 'Course.dart';
+import 'department.dart';
 
 class Teacher {
   late int _id;
   late String name;
+  double? salary;
+  Department? department;
 List<Corurse> listTeacherCourse = [];
 
   Teacher({required this.name});
